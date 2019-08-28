@@ -41,6 +41,8 @@ int main(int argc, char const *argv[])
         {
         case 1: {
             Aluno *novo_aluno = solicitar_registro();
+            // lista_adicionar(novo_aluno);
+            //TODO: implementar a função lista_adicionar
             break;
         }
         
