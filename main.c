@@ -39,9 +39,10 @@ int main(int argc, char const *argv[])
 
         switch (opcao)
         {
-        case 1:
+        case 1: {
             Aluno *novo_aluno = solicitar_registro();
             break;
+        }
         
 
         case 2:
