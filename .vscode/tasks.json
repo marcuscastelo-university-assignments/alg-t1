@@ -3,9 +3,17 @@
         {
             "type": "shell",
             "label": "gcc-7 build active file",
-            "command": "/usr/bin/make",
+            "command": "/usr/bin/gcc-7",
+            "args": [
+                "-g",
+                "${workspaceFolder}/main.c",
+                "${workspaceFolder}/aluno.c",
+                "${workspaceFolder}/lista_alunos.c",
+                "-o",
+                "${fileDirname}/main"
+            ],
             "options": {
-                "cwd": "${workspaceFolder}"
+                "cwd": "/usr/bin"
             }
         }
     ],

@@ -27,7 +27,7 @@ Aluno* solicitar_registro() {
     printf("Digite as nota 2 do aluno: ");
     scanf("%f", &nota2);
     Aluno *aluno;// = aluno_criar(identificador, horas_estudo, nota1, nota2);
-    return aluno;
+    return aluno; //TODO: implementar a função aluno_criar
 }
 
 int main(int argc, char const *argv[])
