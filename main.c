@@ -26,8 +26,8 @@ Aluno* solicitar_registro() {
     scanf("%f", &nota1);
     printf("Digite as nota 2 do aluno: ");
     scanf("%f", &nota2);
-    Aluno *aluno;// = aluno_criar(identificador, horas_estudo, nota1, nota2);
-    return aluno; //TODO: implementar a função aluno_criar
+    Aluno *aluno = aluno_criar(identificador, horas_estudo, nota1, nota2);
+    return aluno;
 }
 
 int solicitar_identificador_remocao() {
@@ -41,7 +41,7 @@ int solicitar_identificador_remocao() {
 int main(int argc, char const *argv[])
 {
     ListaAlunos *lista_alunos;
-    // lista_alunos = lista_criar();
+    lista_alunos = lista_criar();
 
     int opcao;
     while (1) {
@@ -67,23 +67,23 @@ int main(int argc, char const *argv[])
             
 
         case 3:
-            //IMPRIMIR REGISTROS
+            //TODO: IMPRIMIR REGISTROS
             break;
 
         case 4: 
-            //RELATÓRIO DE APROVACAO
+            //TODO: RELATÓRIO DE APROVACAO
             break;
 
         case 5:
-            //HORAS DE ESTUDO (MÉDIA)
+            //TODO: HORAS DE ESTUDO (MÉDIA)
             break;
 
         case 6:
-            //SAIR
+            //TODO: SAIR
             break;
         
         default:
-            //OPCAO INVALIDA
+            //TODO: OPCAO INVALIDA
             break;
         }
     }
