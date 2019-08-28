@@ -15,7 +15,7 @@ int main(int argc, char const *argv[])
     printf("(6) Sair\n");
     printf(":");
 
-    char opcao;
+    int opcao;
     scanf("%d", &opcao);
 
     switch (opcao)
