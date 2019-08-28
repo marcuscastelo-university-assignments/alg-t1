@@ -2,10 +2,11 @@
 
 int main(int argc, char const *argv[])
 {
-    char escolha;
-    scanf("%d", &escolha);
+    char opcao;
+    scanf("%d", &opcao);
 
-    switch (escolha)
+
+    switch (opcao)
     {
     case 1:
         //INSERIR REGISTRO
