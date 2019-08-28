@@ -15,17 +15,17 @@ void menu_exibir_opcoes() {
 }
 
 Aluno* solicitar_registro() {
-    int identificador, nota1, nota2;
-    float horas_estudo;
+    int identificador;
+    float horas_estudo, nota1, nota2;
     printf("Inserindo novo registro de aluno:\n");
     printf("Digite o identificador do aluno: ");
-    scanf("%d", identificador);
+    scanf("%d", &identificador);
     printf("Digite as horas de estudo do aluno: ");
-    scanf("%d", horas_estudo);
+    scanf("%f", &horas_estudo);
     printf("Digite as nota 1 do aluno: ");
-    scanf("%d", nota1);
+    scanf("%f", &nota1);
     printf("Digite as nota 2 do aluno: ");
-    scanf("%d", nota2);
+    scanf("%f", &nota2);
     Aluno *aluno;// = aluno_criar(identificador, horas_estudo, nota1, nota2);
     return aluno;
 }
