@@ -1,6 +1,6 @@
 #include "lista_alunos.h"
 
-#include <stdio.h>
+#include <stdlib.h>
 
 struct lista_alunos {
     int quantidade;
