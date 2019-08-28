@@ -10,7 +10,8 @@
                 "${workspaceFolder}/aluno.c",
                 "${workspaceFolder}/lista_alunos.c",
                 "-o",
-                "${fileDirname}/main"
+                "${fileDirname}/main",
+                "-Werror"
             ],
             "options": {
                 "cwd": "/usr/bin"
