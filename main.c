@@ -33,7 +33,7 @@ Aluno* solicitar_registro() {
 int solicitar_identificador_remocao() {
     int identificador;
     printf("Removendo registro de aluno\n");
-    printf("Digite o identificador do aluno que deseja remover");
+    printf("Digite o identificador do aluno que deseja remover: ");
     scanf("%d", &identificador);
     return identificador;
 }
