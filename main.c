@@ -14,6 +14,22 @@ void menu_exibir_opcoes() {
     printf(":");
 }
 
+Aluno* solicitar_registro() {
+    int identificador, nota1, nota2;
+    float horas_estudo;
+    printf("Inserindo novo registro de aluno:\n");
+    printf("Digite o identificador do aluno: ");
+    scanf("%d", identificador);
+    printf("Digite as horas de estudo do aluno: ");
+    scanf("%d", horas_estudo);
+    printf("Digite as nota 1 do aluno: ");
+    scanf("%d", nota1);
+    printf("Digite as nota 2 do aluno: ");
+    scanf("%d", nota2);
+    Aluno *aluno;// = aluno_criar(identificador, horas_estudo, nota1, nota2);
+    return aluno;
+}
+
 int main(int argc, char const *argv[])
 {
     int opcao;
@@ -24,8 +40,9 @@ int main(int argc, char const *argv[])
         switch (opcao)
         {
         case 1:
-            
+            Aluno *novo_aluno = solicitar_registro();
             break;
+        
 
         case 2:
             //REMOVER REGISTRO
