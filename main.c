@@ -3,25 +3,28 @@
 #include "lista_alunos.h"
 #include "aluno.h"
 
+void menu_exibir_opcoes() {
+    printf("Menu principal. Escolha uma operação:\n\n");
+    printf("(1) Inserir Registro\n");
+    printf("(2) Remover Registro\n");
+    printf("(3) Imprimir Registros\n");
+    printf("(4) Relatório de Aprovações\n");
+    printf("(5) Horas de estudo (Média)\n");
+    printf("(6) Sair\n");
+    printf(":");
+}
+
 int main(int argc, char const *argv[])
 {
+    int opcao;
     while (1) {
-        printf("Menu principal. Escolha uma operação:\n\n");
-        printf("(1) Inserir Registro\n");
-        printf("(2) Remover Registro\n");
-        printf("(3) Imprimir Registros\n");
-        printf("(4) Relatório de Aprovações\n");
-        printf("(5) Horas de estudo (Média)\n");
-        printf("(6) Sair\n");
-        printf(":");
-
-        int opcao;
+        menu_exibir_opcoes();
         scanf("%d", &opcao);
 
         switch (opcao)
         {
         case 1:
-            //INSERIR REGISTRO
+            
             break;
 
         case 2:
