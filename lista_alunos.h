@@ -5,8 +5,6 @@
 
 typedef struct lista_alunos ListaAlunos;
 
-//TODO: lista encadeada de alunos
-
 void lista_adicionar(ListaAlunos*, Aluno);
 void lista_remover_aluno(ListaAlunos*, int id);
 void lista_imprimir_alunos(ListaAlunos*);
