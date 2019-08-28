@@ -5,7 +5,6 @@ int main(int argc, char const *argv[])
     char opcao;
     scanf("%d", &opcao);
 
-
     switch (opcao)
     {
     case 1:
