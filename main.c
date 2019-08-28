@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "lista_alunos.h"
 #include "aluno.h"
@@ -79,7 +80,8 @@ int main(int argc, char const *argv[])
             break;
 
         case 6:
-            //TODO: SAIR
+            //TODO: limpar memória
+            exit(0);
             break;
         
         default:
