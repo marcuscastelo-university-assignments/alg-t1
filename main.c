@@ -2,9 +2,9 @@
 
 int main(int argc, char const *argv[])
 {
-    //TODO: menu input
+    char escolha;
+    scanf("%d", &escolha);
 
-    char escolha = 0;
 
     switch (escolha)
     {
@@ -15,6 +15,7 @@ int main(int argc, char const *argv[])
     case 2:
         //REMOVER REGISTRO
         break;
+
     case 3:
         //IMPRIMIR REGISTROS
         break;
