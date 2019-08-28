@@ -5,7 +5,6 @@ int main(int argc, char const *argv[])
     char escolha;
     scanf("%d", &escolha);
 
-
     switch (escolha)
     {
     case 1:
