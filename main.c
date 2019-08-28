@@ -5,6 +5,16 @@
 
 int main(int argc, char const *argv[])
 {
+
+    printf("Menu principal. Escolha uma operação:\n\n");
+    printf("(1) Inserir Registro\n");
+    printf("(2) Remover Registro\n");
+    printf("(3) Imprimir Registros\n");
+    printf("(4) Relatório de Aprovações\n");
+    printf("(5) Horas de estudo (Média)\n");
+    printf("(6) Sair\n");
+    printf(":");
+
     char opcao;
     scanf("%d", &opcao);
 
