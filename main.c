@@ -17,7 +17,7 @@ void menu_exibir_opcoes() {
 Aluno* solicitar_registro() {
     int identificador;
     float horas_estudo, nota1, nota2;
-    printf("Inserindo novo registro de aluno:\n");
+    printf("Inserindo novo registro de aluno\n");
     printf("Digite o identificador do aluno: ");
     scanf("%d", &identificador);
     printf("Digite as horas de estudo do aluno: ");
@@ -30,8 +30,19 @@ Aluno* solicitar_registro() {
     return aluno; //TODO: implementar a função aluno_criar
 }
 
+int solicitar_identificador_remocao() {
+    int identificador;
+    printf("Removendo registro de aluno\n");
+    printf("Digite o identificador do aluno que deseja remover");
+    scanf("%d", &identificador);
+    return identificador;
+}
+
 int main(int argc, char const *argv[])
 {
+    ListaAlunos *lista_alunos;
+    // lista_alunos = lista_criar();
+
     int opcao;
     while (1) {
         menu_exibir_opcoes();
@@ -41,15 +52,19 @@ int main(int argc, char const *argv[])
         {
         case 1: {
             Aluno *novo_aluno = solicitar_registro();
-            // lista_adicionar(novo_aluno);
+            // lista_adicionar(lista_alunos, novo_aluno);
             //TODO: implementar a função lista_adicionar
             break;
         }
         
 
-        case 2:
-            //REMOVER REGISTRO
+        case 2:{
+            int identificador = solicitar_identificador_remocao();
+            // lista_remover_aluno(lista_alunos, identificador);
+            //TODO: implementar a função lista_remover_aluno
             break;
+        }
+            
 
         case 3:
             //IMPRIMIR REGISTROS
