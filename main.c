@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+#include "lista_alunos.h"
+#include "aluno.h"
+
 int main(int argc, char const *argv[])
 {
     char opcao;
