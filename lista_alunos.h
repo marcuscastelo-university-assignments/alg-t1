@@ -7,6 +7,7 @@ typedef struct lista_alunos ListaAlunos;
 
 //TODO: Comentar as funções
 
+ListaAlunos* lista_criar();
 void lista_adicionar(ListaAlunos*, Aluno);
 void lista_remover_aluno(ListaAlunos*, int id);
 void lista_imprimir_alunos(ListaAlunos*);
