@@ -77,6 +77,7 @@ int main(int argc, char const *argv[])
             break;
 
         case 5:
+            lista_imprimir_tempo_medio_estudo(lista_alunos);
             //TODO: HORAS DE ESTUDO (MÉDIA)
             break;
 

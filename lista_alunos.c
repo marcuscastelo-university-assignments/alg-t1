@@ -1,8 +1,8 @@
 #include "lista.h"
 #include "aluno.h"
 
+#include <stdio.h>
 #include <stdlib.h>
-
 
 struct aluno {
     int identificador;
@@ -42,6 +42,25 @@ ListaAlunos* lista_criar() {
     lista -> primeiro_aluno = NULL;
     lista -> quantidade = 0;
     return lista;
+}
+
+void lista_imprimir_tempo_medio_estudo(ListaAlunos* lista) {
+    Aluno *aluno_atual = lista->primeiro_aluno;
+    float soma = 0; 
+    unsigned quantidade = 0;
+
+    while (aluno_atual) {
+        aluno_atual = aluno_atual->proximo;
+        quantidade++;
+    }
+
+    if (quantidade == 0) {
+        printf("Horas (Médias): Erro - nenhum aluno cadastrado!\n");
+        return;
+    }
+
+    //TODO: checar se essa é a mensagem que o prof quer
+    printf("Horas (Médias): %.2f\n", soma/quantidade);    
 }
 
 void lista_liberar(ListaAlunos *lista){
