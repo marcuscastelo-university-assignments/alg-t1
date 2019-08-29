@@ -7,7 +7,6 @@
             "args": [
                 "-g",
                 "${workspaceFolder}/main.c",
-                "${workspaceFolder}/aluno.c",
                 "${workspaceFolder}/lista_alunos.c",
                 "-o",
                 "${fileDirname}/main",

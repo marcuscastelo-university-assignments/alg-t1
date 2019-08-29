@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "lista_alunos.h"
+#include "lista.h"
 #include "aluno.h"
 
 void menu_exibir_opcoes() {
-    printf("Menu principal. Escolha uma operação:\n\n");
+    printf("\n\nMenu principal. Escolha uma operação:\n\n");
     printf("(1) Inserir Registro\n");
     printf("(2) Remover Registro\n");
     printf("(3) Imprimir Registros\n");
@@ -68,7 +68,8 @@ int main(int argc, char const *argv[])
             
 
         case 3:
-            //TODO: IMPRIMIR REGISTROS
+            // lista_imprimir_alunos(lista_alunos);
+            // TODO: implementar função lista_imprimir_alunos
             break;
 
         case 4: 
@@ -81,11 +82,12 @@ int main(int argc, char const *argv[])
 
         case 6:
             //TODO: limpar memória
+            lista_liberar(lista_alunos);
             exit(0);
             break;
         
         default:
-            //TODO: OPCAO INVALIDA
+            printf("Opção escolhida é invalida!");
             break;
         }
     }
