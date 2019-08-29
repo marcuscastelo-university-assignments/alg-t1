@@ -54,7 +54,7 @@ int main(int argc, char const *argv[])
         case 1: {
             Aluno *novo_aluno = solicitar_registro();
             // lista_adicionar(lista_alunos, novo_aluno);
-            //TODO: implementar a função lista_adicionar
+            //TODO: implementar a função lista_adicionar ...
             break;
         }
         
@@ -62,27 +62,27 @@ int main(int argc, char const *argv[])
         case 2:{
             int identificador = solicitar_identificador_remocao();
             // lista_remover_aluno(lista_alunos, identificador);
-            //TODO: implementar a função lista_remover_aluno
+            //TODO: implementar a função lista_remover_aluno ...
             break;
         }
             
 
         case 3:
             // lista_imprimir_alunos(lista_alunos);
-            // TODO: implementar função lista_imprimir_alunos
+            // TODO: implementar função lista_imprimir_alunos ...
             break;
 
         case 4: 
-            //TODO: RELATÓRIO DE APROVACAO
+            //TODO: RELATÓRIO DE APROVACAO ...
             break;
 
         case 5:
             lista_imprimir_tempo_medio_estudo(lista_alunos);
-            //TODO: HORAS DE ESTUDO (MÉDIA)
+            //TODO: HORAS DE ESTUDO (MÉDIA) ...
             break;
 
         case 6:
-            //TODO: limpar memória
+            //TODO: limpar memória ...
             lista_liberar(lista_alunos);
             exit(0);
             break;
