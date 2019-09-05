@@ -83,6 +83,7 @@ void lista_adicionar(ListaAlunos *lista, Aluno *aluno){
 
     if(lista->primeiro_aluno == NULL){
         lista->primeiro_aluno = aluno;
+        lista->ultimo_aluno = aluno;
         aluno->proximo = NULL;
     }
     else{
