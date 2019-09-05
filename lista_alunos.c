@@ -17,6 +17,7 @@ struct lista_alunos {
     Aluno *primeiro_aluno;
     Aluno *ultimo_aluno;
 };
+//TODO: comentar
 
 //Funções do aluno
 #pragma region Aluno
@@ -73,12 +74,13 @@ void lista_liberar(ListaAlunos *lista){
     }
 }
 
+//Trocando, de acordo com o nome da funcao. 1: vazia, 0: nao vazia
 int verifica_lista_vazia(ListaAlunos *vazia){
-    if(vazia->primeiro_aluno == NULL) return 0;
-    else return 1;
+    if(vazia->primeiro_aluno == NULL) return 1;
+    else return 0;
 }
 
-//Tentei implementar conforme os slides do Ruds
+//Segfault resolvido
 void lista_adicionar(ListaAlunos *lista, Aluno *aluno){
 
     if(lista->primeiro_aluno == NULL){
@@ -94,7 +96,6 @@ void lista_adicionar(ListaAlunos *lista, Aluno *aluno){
 }
 
 //Implementação perfeita, só a variavel verifica_mudança, que pode ser trocada por um else
-//TODO: comentar
 void lista_remover_aluno(ListaAlunos *lista, int id){
 
     Aluno *p = lista->primeiro_aluno;

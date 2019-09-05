@@ -36,7 +36,7 @@ int solicitar_identificador_remocao(ListaAlunos *verifica) {
     
     int vazia = verifica_lista_vazia(verifica);
     
-    if(vazia == 1){
+    if(vazia == 0){
         printf("Removendo registro de aluno\n");
         printf("Digite o identificador do aluno que deseja remover: ");
         scanf("%d", &identificador);
