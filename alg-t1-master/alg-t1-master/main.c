@@ -33,6 +33,8 @@ Aluno* solicitar_registro() {
 
 int solicitar_identificador_remocao(ListaAlunos *verifica) {
     int identificador;
+    
+    //Criei funcao que verifica se a lista está vazia, porque estava pedindo id mesmo com nada nela
     int vazia = verifica_lista_vazia(verifica);
     
     if(vazia == 1){
