@@ -31,12 +31,22 @@ Aluno* solicitar_registro() {
     return aluno;
 }
 
-int solicitar_identificador_remocao() {
+int solicitar_identificador_remocao(ListaAlunos *verifica) {
     int identificador;
-    printf("Removendo registro de aluno\n");
-    printf("Digite o identificador do aluno que deseja remover: ");
-    scanf("%d", &identificador);
-    return identificador;
+    
+    //Criei funcao que verifica se a lista está vazia, porque estava pedindo id mesmo com nada nela
+    int vazia = verifica_lista_vazia(verifica);
+    
+    if(vazia == 1){
+        printf("Removendo registro de aluno\n");
+        printf("Digite o identificador do aluno que deseja remover: ");
+        scanf("%d", &identificador);
+        return identificador;
+    }
+    else{
+        printf("Atual instância da lista se encontra vazia!!\n");
+        return -1;
+    }
 }
 
 int main(int argc, char const *argv[])
@@ -53,23 +63,23 @@ int main(int argc, char const *argv[])
         {
         case 1: {
             Aluno *novo_aluno = solicitar_registro();
-            // lista_adicionar(lista_alunos, novo_aluno);
-            //TODO: implementar a função lista_adicionar ...
+            lista_adicionar(lista_alunos, novo_aluno);
+            // eggs - 04/09 ***
             break;
         }
         
 
         case 2:{
-            int identificador = solicitar_identificador_remocao();
-            // lista_remover_aluno(lista_alunos, identificador);
-            //TODO: implementar a função lista_remover_aluno ...
+            int identificador = solicitar_identificador_remocao(lista_alunos);
+            if(identificador != -1) lista_remover_aluno(lista_alunos, identificador);
+            // eggs - 04/09 ***
             break;
         }
             
 
         case 3:
-            // lista_imprimir_alunos(lista_alunos);
-            // TODO: implementar função lista_imprimir_alunos ...
+            lista_imprimir_alunos(lista_alunos);
+            // eggs - 04/09 ***
             break;
 
         case 4: 
