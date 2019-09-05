@@ -93,11 +93,10 @@ void lista_adicionar(ListaAlunos *lista, Aluno *aluno){
     lista->quantidade++;
 }
 
-//Tentei implementar conforme os slides do Ruds
-//Remove apenas o primeiro aluno, caso haja id's duplicadas
+//Implementação perfeita, só a variavel verifica_mudança, que pode ser trocada por um else
+//TODO: comentar
 void lista_remover_aluno(ListaAlunos *lista, int id){
 
-    int verifica_mudanca = 0;
     Aluno *p = lista->primeiro_aluno;
     Aluno *auxiliar = NULL;
 
@@ -114,18 +113,17 @@ void lista_remover_aluno(ListaAlunos *lista, int id){
         else{
             auxiliar->proximo = p->proximo;
             p->proximo = NULL;
+        
+            //Colocado o if para dentro, já que ele só pode ser verdade dentro do else de fora, reduzindo dupla checagem desnecessária
+            if(p == lista->ultimo_aluno){
+                lista->ultimo_aluno = auxiliar;
+            }
         }
-
-        if(p == lista->ultimo_aluno){
-            lista->ultimo_aluno = auxiliar;
-        }
-
+        
         lista->quantidade--;
         free(p);
-        verifica_mudanca = 1;
     }
-
-    if(verifica_mudanca == 0) printf("Não foi possível encontrar aluno com o identificador dado!\n");
+    else printf("Não foi possível encontrar aluno com o identificador dado!\n");
 }
 
 void lista_imprimir_alunos(ListaAlunos *lista){
