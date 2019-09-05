@@ -17,6 +17,7 @@ struct lista_alunos {
     Aluno *primeiro_aluno;
     Aluno *ultimo_aluno;
 };
+//TODO: comentar
 
 //Funções do aluno
 #pragma region Aluno
@@ -60,7 +61,6 @@ void lista_imprimir_tempo_medio_estudo(ListaAlunos* lista) {
         return;
     }
 
-    //TODO: checar se essa é a mensagem que o prof quer
     printf("Horas (Médias): %.2f\n", soma/quantidade);    
 }
 
@@ -78,7 +78,6 @@ int verifica_lista_vazia(ListaAlunos *vazia){
     else return 1;
 }
 
-//Tentei implementar conforme os slides do Ruds
 void lista_adicionar(ListaAlunos *lista, Aluno *aluno){
 
     if(lista->primeiro_aluno == NULL){
@@ -93,8 +92,6 @@ void lista_adicionar(ListaAlunos *lista, Aluno *aluno){
     lista->quantidade++;
 }
 
-//Tentei implementar conforme os slides do Ruds
-//Remove apenas o primeiro aluno, caso haja id's duplicadas
 void lista_remover_aluno(ListaAlunos *lista, int id){
 
     int verifica_mudanca = 0;
@@ -146,7 +143,6 @@ void lista_imprimir_alunos(ListaAlunos *lista){
     }
 }
 
-//Funcao similar a de cima, adicionando a parte da media
 void lista_imprimir_relatorio(ListaAlunos *relatorio){
 
     if(relatorio->primeiro_aluno == NULL){
@@ -171,5 +167,3 @@ void lista_imprimir_relatorio(ListaAlunos *relatorio){
 }
 
 #pragma endregion
-
-//TODO: Implementar funções definidas no .h

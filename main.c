@@ -49,6 +49,8 @@ int solicitar_identificador_remocao(ListaAlunos *verifica) {
     }
 }
 
+
+//TODO: formatar melhor a saida das funções.
 int main(int argc, char const *argv[])
 {
     ListaAlunos *lista_alunos;
@@ -64,7 +66,6 @@ int main(int argc, char const *argv[])
         case 1: {
             Aluno *novo_aluno = solicitar_registro();
             lista_adicionar(lista_alunos, novo_aluno);
-            // eggs - 04/09 ***
             break;
         }
         
@@ -72,27 +73,18 @@ int main(int argc, char const *argv[])
         case 2:{
             int identificador = solicitar_identificador_remocao(lista_alunos);
             if(identificador != -1) lista_remover_aluno(lista_alunos, identificador);
-            // eggs - 04/09 ***
             break;
         }
-            
-
+                
         case 3:
             lista_imprimir_alunos(lista_alunos);
-            // eggs - 04/09 ***
             break;
 
         case 4: 
             lista_imprimir_relatorio(lista_alunos);
             break;
 
-        case 5:
-            lista_imprimir_tempo_medio_estudo(lista_alunos);
-            //TODO: HORAS DE ESTUDO (MÉDIA) ...
-            break;
-
         case 6:
-            //TODO: limpar memória ...
             lista_liberar(lista_alunos);
             exit(0);
             break;
