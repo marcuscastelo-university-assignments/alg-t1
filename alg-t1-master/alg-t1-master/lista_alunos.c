@@ -89,6 +89,7 @@ void lista_adicionar(ListaAlunos *lista, Aluno *aluno){
         aluno->proximo = NULL;
         lista->ultimo_aluno->proximo = aluno;
     }
+    lista->ultimo_aluno = aluno;
     lista->quantidade++;
 }
 
