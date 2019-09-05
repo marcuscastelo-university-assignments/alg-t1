@@ -11,7 +11,7 @@ ListaAlunos* lista_criar(void);
 void lista_adicionar(ListaAlunos *lista, Aluno *aluno);
 void lista_remover_aluno(ListaAlunos *lista, int id);
 void lista_imprimir_alunos(ListaAlunos *lista);
-void lista_imprimir_relatorio(ListaAlunos*);
+void lista_imprimir_relatorio(ListaAlunos *lista);
 void lista_imprimir_tempo_medio_estudo(ListaAlunos*);
 void lista_liberar(ListaAlunos*);
 

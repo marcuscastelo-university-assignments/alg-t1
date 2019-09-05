@@ -79,7 +79,7 @@ int main(int argc, char const *argv[])
                 break;
 
             case 4: 
-                //TODO: RELATÓRIO DE APROVACAO ...
+                lista_imprimir_relatorio(lista_alunos);
                 break;
 
             case 5:

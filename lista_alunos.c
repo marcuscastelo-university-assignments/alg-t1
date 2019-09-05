@@ -145,6 +145,10 @@ void lista_imprimir_alunos(ListaAlunos *lista){
     }
 }
 
+void lista_imprimir_relatorio(ListaAlunos *lista) {
+    
+}
+
 #pragma endregion
 
 //TODO: Implementar funções definidas no .h
