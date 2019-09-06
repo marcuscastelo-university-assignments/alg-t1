@@ -62,7 +62,7 @@ void lista_imprimir_tempo_medio_estudo(ListaAlunos* lista) {
         return;
     }
 
-    printf("Horas (Médias): %.2f\n", soma/quantidade);    
+    printf("\nHoras (Médias): %.2f. Total de alunos: %d alunos.\n", soma/quantidade, quantidade);    
 }
 
 void lista_liberar(ListaAlunos *lista){
@@ -123,7 +123,7 @@ void lista_remover_aluno(ListaAlunos *lista, int id){
         verifica_mudanca = 1;
     }
 
-    if(verifica_mudanca == 0) printf("\nNão foi possível encontrar aluno com o identificador dado!\n");
+    if(verifica_mudanca == 0) printf("\nNão foi possível encontrar o aluno com o identificador dado!\n");
 }
 
 void lista_imprimir_alunos(ListaAlunos *lista){
@@ -133,12 +133,12 @@ void lista_imprimir_alunos(ListaAlunos *lista){
         return;
     }
 
-    printf("Dados do(s) aluno(s) da lista:\n");
+    printf("\nDados do(s) aluno(s) da lista:\n\n");
 
     Aluno *atual = lista->primeiro_aluno;
     int i = 1;
     while(atual){
-        printf("%d:\nIdentificador: %d\nHoras de estudo: %.2f\nNotas: %.2f || %.2f\n\n", i, atual->identificador,atual->horas_estudo, atual->nota1, atual->nota2);
+        printf("%d:\n   Identificador: %d\n   Horas de estudo: %.2f\n   Notas: %.2f || %.2f\n\n", i, atual->identificador,atual->horas_estudo, atual->nota1, atual->nota2);
         i++;
         atual = atual->proximo;
     }
@@ -151,7 +151,7 @@ void lista_imprimir_relatorio(ListaAlunos *relatorio){
         return;
     }
 
-    printf("Registro(s) do(s) aluno(s) da lista:\n");
+    printf("\nRegistro(s) do(s) aluno(s) da lista:\n");
 
     Aluno *atual = relatorio->primeiro_aluno;
     
@@ -159,9 +159,9 @@ void lista_imprimir_relatorio(ListaAlunos *relatorio){
     float media;
     while(atual){
         media = (atual->nota1 + atual->nota2)/2;
-        printf("%d:\nIdentificador: %d\nMédia: %.2f\n\n", i, atual->identificador, media); 
-        if(media >= 5) printf("Aluno APROVADO!\n");
-        else printf("Aluno REPROVADO!\n");
+        printf("%d:\n  Identificador: %d\n  Média: %.2f\n", i, atual->identificador, media); 
+        if(media >= 5) printf("---------->Aluno APROVADO<----------\n\n");
+        else printf("---------->Aluno REPROVADO<----------\n\n");
         i++;
         atual = atual->proximo;
     }
