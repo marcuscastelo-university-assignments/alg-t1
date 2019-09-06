@@ -52,6 +52,7 @@ void lista_imprimir_tempo_medio_estudo(ListaAlunos* lista) {
     unsigned quantidade = 0;
 
     while (aluno_atual) {
+        soma += aluno_atual->horas_estudo;
         aluno_atual = aluno_atual->proximo;
         quantidade++;
     }
