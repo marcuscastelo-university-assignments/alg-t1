@@ -36,6 +36,9 @@ Aluno* solicitar_registro() {
     float horas_estudo = -1;
     float nota1 = -1;
     float nota2 = -1;
+
+    //Solicitando dados (com verificação de validade)
+
     printf("Inserindo novo registro de aluno\n");
     printf("Digite o identificador do aluno: ");
     scanf("%d", &identificador);
@@ -54,14 +57,25 @@ Aluno* solicitar_registro() {
         scanf("%f", &nota2);
         if(nota2 < 0) printf("Nota digitada inválida. ");
     }
+
+    //Criação e retorno do TAD aluno
+
     Aluno *aluno = aluno_criar(identificador, horas_estudo, nota1, nota2);
     return aluno;
 }
 
-int solicitar_identificador_remocao(ListaAlunos *verifica) {
+/**
+ * Função que agrupa comandos para solicitar o identificador do aluno para a operação de remoção
+ * com o objetivo de deixar o código mais claro e limpo
+ * 
+ * Parâmetros: ListaAlunos *lista - pointer para a lista (verifica se a lista está vazia e exibe erro nesse caso)
+ * 
+ * Retorno: int - identificador digitado ou -1 em caso de lista vazia
+ */
+int solicitar_identificador_remocao(ListaAlunos *lista) {
     int identificador;
     
-    int vazia = verifica_lista_vazia(verifica);
+    int vazia = verifica_lista_vazia(lista);
     
     if(vazia == 1){
         printf("Removendo registro de aluno\n");
@@ -83,12 +97,16 @@ int main(int argc, char const *argv[])
     lista_alunos = lista_criar();
 
     int opcao;
+
+    //Mantém o menu em loop, do qual só se sai através da opção 6.
     while (1) {
         menu_exibir_opcoes();
         scanf("%d", &opcao);
 
         switch (opcao)
         {
+
+            //Usando chaves (bloco), pois em um switch padrão, não é permitido a declaração de variáveis
             case 1: {
                 Aluno *novo_aluno = solicitar_registro();
                 lista_adicionar(lista_alunos, novo_aluno);
@@ -123,8 +141,6 @@ int main(int argc, char const *argv[])
                 break;
         }
     }
-
-
 
     return 0;
 }
