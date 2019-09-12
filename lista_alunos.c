@@ -4,11 +4,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//Definição das structs que serão representadas por pointers opacos (TAD)
+
 struct aluno {
     int identificador;
     float horas_estudo;
     float nota1, nota2;
-
     Aluno *proximo;
 };
 
@@ -17,11 +18,23 @@ struct lista_alunos {
     Aluno *primeiro_aluno;
     Aluno *ultimo_aluno;
 };
-//TODO: comentar
+
+//==============================
 
 //Funções do aluno
 #pragma region Aluno
 
+/**
+ *  Função de criação de aluno (não adiciona na lista, apenas cria o nó a ser adicionado)
+ * 
+ *  Parâmetros: 
+ *      int identificador - campo de identificação do aluno
+ *      float horas_estudo - campo de horas de estudo do aluno
+ *      float nota1 - primeira nota do aluno
+ *      float nota2 - segunda nota do aluno
+ * 
+ *  Retorno: Aluno* - aluno criado
+ */
 Aluno *aluno_criar(int identificador, float horas_estudo, float nota1, float nota2) {
     Aluno *aluno = (Aluno*) malloc(sizeof(Aluno));
     aluno->identificador = identificador;
@@ -31,11 +44,23 @@ Aluno *aluno_criar(int identificador, float horas_estudo, float nota1, float not
     return aluno;
 }
 
+/**
+ *  Função que libera a memória de um TAD Aluno
+ *  
+ *  Parâmetros: 
+ *      Aluno *aluno - pointer para o aluno criado com aluno_criar()
+ * 
+ *  Retorno: void 
+ */
 void aluno_apagar(Aluno *aluno) {
     free(aluno);
 }
 
 #pragma endregion
+
+
+//========================
+
 
 //Funções da lista
 #pragma region Lista
