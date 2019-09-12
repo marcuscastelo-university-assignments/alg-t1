@@ -135,7 +135,7 @@ int main(int argc, char const *argv[])
                 break;
 
             case 6:
-                lista_liberar(lista_alunos);
+                lista_liberar(&lista_alunos);
                 exit(0);
                 break;
             

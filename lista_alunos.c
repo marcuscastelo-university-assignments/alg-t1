@@ -48,12 +48,15 @@ Aluno *aluno_criar(int identificador, float horas_estudo, float nota1, float not
  *  Função que libera a memória de um TAD Aluno
  *  
  *  Parâmetros: 
- *      Aluno *aluno - pointer para o aluno criado com aluno_criar()
+ *      Aluno **aluno - pointer para o pointer (usado na main) que representa o aluno criado com aluno_criar()
  * 
  *  Retorno: void 
  */
-void aluno_apagar(Aluno *aluno) {
-    free(aluno);
+void aluno_apagar(Aluno **aluno) {
+    if (*aluno == NULL) return;
+    
+    free(*aluno);
+    *aluno = NULL;
 }
 
 #pragma endregion
@@ -90,13 +93,22 @@ void lista_imprimir_tempo_medio_estudo(ListaAlunos* lista) {
     printf("\nHoras (Médias): %.2f. Total de alunos: %d alunos.\n", soma/quantidade, quantidade);    
 }
 
-void lista_liberar(ListaAlunos *lista){
+void lista_liberar(ListaAlunos **lista_ptr){
+    #define lista (*lista_ptr) //Legibilidade
+    
+    if (lista == NULL) return;
+
     Aluno *aluno_atual = lista->primeiro_aluno, *proximo_aluno;
     while (aluno_atual) {
         proximo_aluno = aluno_atual->proximo;
-        aluno_apagar(aluno_atual);
+        aluno_apagar(&aluno_atual);
         aluno_atual = proximo_aluno;
     }
+
+    free(lista);
+    lista = NULL;
+
+    #undef lista
 }
 
 int verifica_lista_vazia(ListaAlunos *vazia){
@@ -144,7 +156,7 @@ void lista_remover_aluno(ListaAlunos *lista, int id){
         }
 
         lista->quantidade--;
-        free(p);
+        aluno_apagar(&p);
         verifica_mudanca = 1;
     }
 
