@@ -33,30 +33,33 @@ void menu_exibir_opcoes() {
  */
 Aluno* solicitar_registro() {
     int identificador;
-    float horas_estudo = -1;
-    float nota1 = -1;
-    float nota2 = -1;
+    float horas_estudo;
+    float nota1;
+    float nota2;
 
     //Solicitando dados (com verificação de validade)
 
     printf("Inserindo novo registro de aluno\n");
     printf("Digite o identificador do aluno: ");
     scanf("%d", &identificador);
-    while(horas_estudo < 0){
+    
+    do {
         printf("Digite as horas de estudo do aluno: ");
         scanf("%f", &horas_estudo);
         if(horas_estudo < 0) printf("Quantidade digitada inválida. ");
-    }
-    while(nota1 < 0){
+    } while(horas_estudo < 0);
+    
+    do {
         printf("Digite a nota 1 do aluno: ");
         scanf("%f", &nota1);
         if(nota1 < 0) printf("Nota digitada inválida. ");
-    }
-    while(nota2 < 0){
+    } while(nota1 < 0);
+
+    do {
         printf("Digite a nota 2 do aluno: ");
         scanf("%f", &nota2);
         if(nota2 < 0) printf("Nota digitada inválida. ");
-    }
+    } while(nota2 < 0);
 
     //Criação e retorno do TAD aluno
 
