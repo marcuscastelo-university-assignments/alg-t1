@@ -4,6 +4,14 @@
 #include "lista.h"
 #include "aluno.h"
 
+/**
+ * Função simples que agrupa comandos de exibição do menu com o objetivo de 
+ * deixar o código mais claro e limpo
+ * 
+ * Parâmetros: nenhum
+ * 
+ * Retorna void
+ */
 void menu_exibir_opcoes() {
     printf("\nMenu principal. Escolha uma operação:\n\n");
     printf("(1) Inserir Registro\n");
@@ -15,6 +23,14 @@ void menu_exibir_opcoes() {
     printf(":");
 }
 
+/**
+ * Função que agrupa comandos para solicitar dados dos alunos 
+ * com o objetivo de deixar o código mais claro e limpo
+ * 
+ * Parâmetros: nenhum
+ * 
+ * Retorno: Aluno* - pointer para o TAD aluno criado com as informações solicitadas
+ */
 Aluno* solicitar_registro() {
     int identificador;
     float horas_estudo = -1;
