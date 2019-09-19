@@ -67,6 +67,14 @@ void aluno_apagar(Aluno **aluno) {
 
 //Funções da lista
 #pragma region Lista
+
+/**
+ *  Função que inicializa a lista, fazendo o malloc do bloco que contem informações
+ *  sobre a lista, como o nó inicial, tamanho, etc.
+ * 
+ *  Parâmetros: nenhum:
+ *  Retorno: ListaAlunos* - pointer para o TAD lista criado
+ */
 ListaAlunos* lista_criar() {
     ListaAlunos *lista = (ListaAlunos*) malloc(sizeof(ListaAlunos));
     lista -> primeiro_aluno = NULL;
@@ -74,6 +82,16 @@ ListaAlunos* lista_criar() {
     return lista;
 }
 
+/**
+ *  Função responsável por imprmir o tempo médio de estudo
+ *  Calcula a média dos tempos de estudo de todos os alunos na lista
+ *  e exibe-a.
+ * 
+ *  Parâmteros:
+ *      ListaAlunos *lista - pointer para o TAD lista
+ * 
+ *  Retorno: void
+ */ 
 void lista_imprimir_tempo_medio_estudo(ListaAlunos* lista) {
     Aluno *aluno_atual = lista->primeiro_aluno;
     float soma = 0; 
@@ -93,6 +111,17 @@ void lista_imprimir_tempo_medio_estudo(ListaAlunos* lista) {
     printf("\nHoras (Médias): %.2f. Total de alunos: %d alunos.\n", soma/quantidade, quantidade);    
 }
 
+
+/**
+ *  Função que libera o espaço na heap usado pelo TAD lista
+ *  e seus itens.
+ * 
+ *  Parâmetros: 
+ *      ListaAlunos **lista_ptr - pointer para o pointer que aponta para o TAD
+ *      OBS: é um double pointer para que seja possível redefinir seu valor a NULL
+ * 
+ *  Retorno: void
+ */
 void lista_liberar(ListaAlunos **lista_ptr){
     #define lista (*lista_ptr) //Legibilidade
     
@@ -111,11 +140,37 @@ void lista_liberar(ListaAlunos **lista_ptr){
     #undef lista
 }
 
+
+/**
+ *  Função que verifica se a lista está vazia
+ * 
+ *  Parâmetros:
+ *      ListaAlunos *vazia - pointer para o TAD lista referida
+ * 
+ *  Retorno: bool - typedef para um tipo representando 0 ou 1
+ *      OBS: (0 = lista não vazia, 1 = lista vazia)
+ */
+
+//TODO: criar tipo booleano
 int verifica_lista_vazia(ListaAlunos *vazia){
     if(vazia->primeiro_aluno == NULL) return 0;
     else return 1;
 }
 
+/**
+ *  Função que adiciona um aluno na lista
+ *  OBS: o aluno já deve ter sido criado com a função de criação de aluno.
+ *  OBS2: o aluno é um TAD, portanto apenas a sua referência é adicionada na lista (sem cópias),
+ *  sendo o aluno, portanto, modificável pelo pointer inicial.
+ * 
+ *  Parâmetros:
+ *      ListaAlunos *lista - pointer para o TAD lista
+ *      Aluno *aluno - aluno já criado, a ser adicionado na lista
+ * 
+ *  Retorno: void (nunca vai haver problemas com lista cheia, porque o aluno já foi alocado)
+ */
+
+//TODO: verificar se é melhor fazer uma cópia do aluno, por causa da remoção
 void lista_adicionar(ListaAlunos *lista, Aluno *aluno){
 
     if(lista->primeiro_aluno == NULL){
@@ -130,6 +185,15 @@ void lista_adicionar(ListaAlunos *lista, Aluno *aluno){
     lista->quantidade++;
 }
 
+/**
+ *  Função que remove o aluno da lista
+ *  
+ *  Parâmetros:
+ *      ListaAlunos *lista - pointer para o TAD lista
+ *      int id - id do aluno que se deseja remover
+ *  
+ *  Retorno: void
+ */
 void lista_remover_aluno(ListaAlunos *lista, int id){
 
     int verifica_mudanca = 0;
@@ -163,6 +227,14 @@ void lista_remover_aluno(ListaAlunos *lista, int id){
     if(verifica_mudanca == 0) printf("\nNão foi possível encontrar o aluno com o identificador dado!\n");
 }
 
+
+/**
+ *  Função que imprime os dados dos alunos na lista
+ *  Parâmetros:
+ *      ListaAlunos *lista - pointer para o TAD lista
+ *  
+ *  Retrono: void (apenas printf na função)
+ */
 void lista_imprimir_alunos(ListaAlunos *lista){
 
     if(lista->primeiro_aluno == NULL){
@@ -181,16 +253,25 @@ void lista_imprimir_alunos(ListaAlunos *lista){
     }
 }
 
-void lista_imprimir_relatorio(ListaAlunos *relatorio){
 
-    if(relatorio->primeiro_aluno == NULL){
+/**
+ *  Função de impressão de relatórios da lista de alunos
+ * 
+ *  Parâmetros:
+ *      ListaAlunos *lista - pointer para o TAD lista
+ * 
+ *  Retorno: void (apenas printf)
+ */
+void lista_imprimir_relatorio(ListaAlunos *lista){
+
+    if(lista->primeiro_aluno == NULL){
         printf("\nA lista atual se encontra vazia!!\n");
         return;
     }
 
     printf("\nRegistro(s) do(s) aluno(s) da lista:\n");
 
-    Aluno *atual = relatorio->primeiro_aluno;
+    Aluno *atual = lista->primeiro_aluno;
     
     int i = 1;
     float media;
