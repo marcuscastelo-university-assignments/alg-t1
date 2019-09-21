@@ -169,7 +169,6 @@ bool verifica_lista_vazia(ListaAlunos *vazia){
  *  Retorno: void (nunca vai haver problemas com lista cheia, porque o aluno já foi alocado)
  */
 
-//TODO: verificar se é melhor fazer uma cópia do aluno, por causa da remoção
 void lista_adicionar(ListaAlunos *lista, Aluno *aluno){
 
     if(lista->primeiro_aluno == NULL){
@@ -261,7 +260,7 @@ void lista_imprimir_alunos(ListaAlunos *lista){
  *      ListaAlunos *lista - pointer para o TAD lista
  * 
  *  Retorno: void (apenas printf)
- */
+ */ 
 void lista_imprimir_relatorio(ListaAlunos *lista){
     printf("\n");
 
