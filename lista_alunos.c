@@ -151,8 +151,7 @@ void lista_liberar(ListaAlunos **lista_ptr){
  *      OBS: (0 = lista não vazia, 1 = lista vazia)
  */
 
-//TODO: criar tipo booleano
-int verifica_lista_vazia(ListaAlunos *vazia){
+bool verifica_lista_vazia(ListaAlunos *vazia){
     if(vazia->primeiro_aluno == NULL) return 0;
     else return 1;
 }
