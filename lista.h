@@ -4,6 +4,7 @@
 #include "aluno.h"
 
 typedef struct lista_alunos ListaAlunos;
+typedef char bool;
 
 //Funcao que cria o ponteiro do TAD lista_aluno e o retorna para referencia
 ListaAlunos* lista_criar(void);
@@ -27,6 +28,6 @@ void lista_imprimir_tempo_medio_estudo(ListaAlunos*);
 void lista_liberar(ListaAlunos **);
 
 //Funcao que verifica se a lista dada esta vazia, retornando um inteiro que determinara os passos seguintes
-int verifica_lista_vazia(ListaAlunos *vazia);
+bool verifica_lista_vazia(ListaAlunos *vazia);
 
 #endif
