@@ -127,14 +127,17 @@ int main(int argc, char const *argv[])
                 break;
 
             case 4: 
+                //TODO: consertar (não imprime nada (com 1 ou 2 alunos))
                 lista_imprimir_relatorio(lista_alunos);
                 break;
 
             case 5:
+                //TODO: consertar (imprime 0)
                 lista_imprimir_tempo_medio_estudo(lista_alunos);
                 break;
 
             case 6:
+                //TODO: consertar (perdendo 24 bytes)
                 lista_liberar(&lista_alunos);
                 exit(0);
                 break;
