@@ -1,3 +1,8 @@
+/*
+Alunos:
+    Dalton Hiroshi Sato nUSP 11275172
+    Marcus Vinicius Castelo Branco Martins nUSP 11219237
+*/
 #include <stdio.h>
 #include <stdlib.h>
 
