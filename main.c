@@ -1,8 +1,27 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "lista.h"
 #include "aluno.h"
+
+#pragma region wait
+#ifdef _WIN32
+    #include <windows.h>
+#else
+    #include <unistd.h>
+#endif
+
+//Não sei como ser mais cross-plataform que isso
+void wait(int seconds) 
+{   
+    #ifdef _WIN32
+        Sleep( 1000 * seconds );
+    #else
+        sleep( seconds );
+    #endif
+}
+#pragma endregion
 
 /**
  * Função simples que agrupa comandos de exibição do menu com o objetivo de 
@@ -13,7 +32,8 @@
  * Retorna void
  */
 void menu_exibir_opcoes() {
-    printf("\nMenu principal. Escolha uma operação:\n\n");
+    printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"); //Pseudo clear
+    printf("Menu principal. Escolha uma operação:\n\n");
     printf("(1) Inserir Registro\n");
     printf("(2) Remover Registro\n");
     printf("(3) Imprimir Registros\n");
@@ -38,31 +58,29 @@ Aluno* solicitar_registro() {
     float nota2;
 
     //Solicitando dados (com verificação de validade)
-
-    printf("Inserindo novo registro de aluno\n");
     printf("Digite o identificador do aluno: ");
     scanf("%d", &identificador);
     
     do {
         printf("Digite as horas de estudo do aluno: ");
         scanf("%f", &horas_estudo);
-        if(horas_estudo < 0) printf("Quantidade digitada inválida. ");
+        if(horas_estudo < 0) printf("ERRO: Quantidade digitada inválida. \n");
     } while(horas_estudo < 0);
     
     do {
         printf("Digite a nota 1 do aluno: ");
         scanf("%f", &nota1);
-        if(nota1 < 0) printf("Nota digitada inválida. ");
+        if(nota1 < 0) printf("ERRO: Nota digitada inválida. \n");
     } while(nota1 < 0);
 
     do {
         printf("Digite a nota 2 do aluno: ");
         scanf("%f", &nota2);
-        if(nota2 < 0) printf("Nota digitada inválida. ");
+        if(nota2 < 0) printf("ERRO: Nota digitada inválida. \n");
     } while(nota2 < 0);
 
     //Criação e retorno do TAD aluno
-
+    printf("Criando registro do aluno...\n");
     Aluno *aluno = aluno_criar(identificador, horas_estudo, nota1, nota2);
     return aluno;
 }
@@ -81,13 +99,13 @@ int solicitar_identificador_remocao(ListaAlunos *lista) {
     int vazia = verifica_lista_vazia(lista);
     
     if(vazia == 1){
-        printf("Removendo registro de aluno\n");
         printf("Digite o identificador do aluno que deseja remover: ");
         scanf("%d", &identificador);
+        printf("Removendo registro de aluno...\n");
         return identificador;
     }
     else{
-        printf("\nAtual instância da lista se encontra vazia!!\n");
+        printf("ERRO: não é possível remover um registro de uma lista vazia!!\n");
         return -1;
     }
 }
@@ -127,25 +145,27 @@ int main(int argc, char const *argv[])
                 break;
 
             case 4: 
-                //TODO: consertar (não imprime nada (com 1 ou 2 alunos))
                 lista_imprimir_relatorio(lista_alunos);
                 break;
 
             case 5:
-                //TODO: consertar (imprime 0)
                 lista_imprimir_tempo_medio_estudo(lista_alunos);
                 break;
 
             case 6:
-                //TODO: consertar (perdendo 24 bytes)
                 lista_liberar(&lista_alunos);
                 exit(0);
                 break;
             
             default:
-                printf("Opção escolhida é invalida!");
+                printf("Opção escolhida é invalida!\n");
                 break;
         }
+
+        fflush(stdout);
+        wait(1);
+        wait(3);
+        
     }
 
     return 0;

@@ -235,18 +235,19 @@ void lista_remover_aluno(ListaAlunos *lista, int id){
  *  Retrono: void (apenas printf na função)
  */
 void lista_imprimir_alunos(ListaAlunos *lista){
+    printf("\n");
 
     if(lista->primeiro_aluno == NULL){
-        printf("\nA lista atual se encontra vazia!!\n");
+        printf("ERRO: A lista atual se encontra vazia!!\n");
         return;
     }
 
-    printf("\nDados do(s) aluno(s) da lista:\n\n");
+    printf("Dados do(s) aluno(s) da lista:\n\n");
 
     Aluno *atual = lista->primeiro_aluno;
     int i = 1;
     while(atual){
-        printf("%d:\n   Identificador: %d\n   Horas de estudo: %.2f\n   Notas: %.2f || %.2f\n\n", i, atual->identificador,atual->horas_estudo, atual->nota1, atual->nota2);
+        printf("%dº aluno: {\n\tIdentificador: %d\n\tHoras de estudo: %.2f\n\tNota 1: %.2f\n\tNota 2: %.2f\n}\n", i, atual->identificador,atual->horas_estudo, atual->nota1, atual->nota2);
         i++;
         atual = atual->proximo;
     }
@@ -262,25 +263,27 @@ void lista_imprimir_alunos(ListaAlunos *lista){
  *  Retorno: void (apenas printf)
  */
 void lista_imprimir_relatorio(ListaAlunos *lista){
+    printf("\n");
 
     if(lista->primeiro_aluno == NULL){
-        printf("\nA lista atual se encontra vazia!!\n");
+        printf("ERRO: A lista atual se encontra vazia!!\n");
         return;
     }
 
-    printf("\nRegistro(s) do(s) aluno(s) da lista:\n");
+    printf("Registro(s) do(s) aluno(s) da lista:\n");
 
-    Aluno *atual = lista->primeiro_aluno;
+    Aluno *aluno_atual = lista->primeiro_aluno;
     
-    int i = 1;
+    unsigned i = 1;
     float media;
-    while(atual){
-        media = (atual->nota1 + atual->nota2)/2;
-        printf("%d:\n  Identificador: %d\n  Média: %.2f\n", i, atual->identificador, media); 
-        if(media >= 5) printf("---------->Aluno APROVADO<----------\n\n");
-        else printf("---------->Aluno REPROVADO<----------\n\n");
+    while(aluno_atual){
+        media = (aluno_atual->nota1 + aluno_atual->nota2)/2;
+        printf("%dº aluno: {\n\tIdentificador: %d\n\tMédia: %.2f\n}\n", i, aluno_atual->identificador, media); 
+       
+        if(media >= 5) printf("---------->  Aluno APROVADO  <----------\n\n");
+        else printf("---------->  Aluno REPROVADO  <----------\n\n");
         i++;
-        atual = atual->proximo;
+        aluno_atual = aluno_atual->proximo;
     }
 }
 
