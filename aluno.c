@@ -1,4 +1,5 @@
 #include "aluno.h"
+#include <stdlib.h>
 
 struct aluno {
     int identificador;
@@ -45,11 +46,30 @@ void aluno_apagar(Aluno **aluno) {
     *aluno = NULL;
 }
 
+/**
+ * Função que retorna o próximo aluno da lista, mantendo a integridade do uso de um TAD
+ * 
+ * Parametros:
+ *      Aluno * - aluno atual de referência para retornar o seu próximo
+ * 
+ * Retorno:
+ *      Aluno *
+ */
 Aluno *aluno_obter_proximo(Aluno *aluno){
 
     return aluno->proximo;
 }
 
+/**
+ * Função que define o próximo aluno de uma lista, sem algum tipo de retorno
+ * 
+ * Parametros:
+ *      Aluno * - atual aluno da lista para atribuir seu seguinte
+ *      Aluno * - próximo aluno a ser atribuído/incluído na lista
+ * 
+ * Retorno:
+ *      void
+ */
 void aluno_definir_proximo(Aluno *atual, Aluno *proximo){
 
     atual->proximo = proximo;
