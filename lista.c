@@ -196,7 +196,7 @@ void lista_imprimir_alunos(ListaAlunos *lista){
     Aluno *atual = lista->primeiro_aluno;
     int i = 1;
     while(atual){
-        printf("%dº aluno: {\n\tIdentificador: %d\n\tHoras de estudo: %.2f\n\tNota 1: %.2f\n\tNota 2: %.2f\n}\n", i, atual->identificador,atual->horas_estudo, atual->nota1, atual->nota2);
+        printf("%dº aluno: {\n\tIdentificador: %d\n\tHoras de estudo: %.2f\n\tNota 1: %.2f\n\tNota 2: %.2f\n}\n", i, aluno_obter_id(atual), aluno_obter_horas(atual), aluno_obter_nota1(atual), aluno_obter_nota2(atual));
         i++;
         atual = aluno_obter_proximo(atual);
     }
