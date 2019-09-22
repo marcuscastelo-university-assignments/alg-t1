@@ -108,7 +108,6 @@ float aluno_obter_horas(Aluno *aluno) {
  * Retorno: float - nota 1
  */
 float aluno_obter_nota1(Aluno *aluno){
-
     return aluno->nota1;
 }
 
@@ -121,8 +120,26 @@ float aluno_obter_nota1(Aluno *aluno){
  * Retorno: float - nota 2
  */
 float aluno_obter_nota2(Aluno *aluno){
-
     return aluno->nota2;
 }
+
+
+
+/**
+ *  Funções de definição de membros do TAD aluno
+ *  Parâmetros:
+ *      float - valor do parâmetro desejado
+ *  Retorno: void
+ */
+void aluno_definir_horas_estudo(Aluno* aluno, float horas_estudo) {
+    aluno->horas_estudo = horas_estudo;
+}
+void aluno_definir_nota1(Aluno* aluno, float nota1) {
+    aluno->nota1 = nota1;
+}
+void aluno_definir_nota2(Aluno* aluno, float nota2) {
+    aluno->nota2 = nota2;
+}
+
 
 #pragma endregion
