@@ -22,6 +22,9 @@ int aluno_obter_nota2(Aluno*);
 Aluno *aluno_obter_proximo(Aluno*);
 void aluno_definir_proximo(Aluno*, Aluno*);
 
+//Funcao que retorna o identificador de um dado aluno
+int aluno_obter_id(Aluno *);
+
 //Funcao que "apaga" o aluno, liberando seu respectivo bloco de memória
 void aluno_apagar(Aluno**);
 

@@ -75,6 +75,20 @@ void aluno_definir_proximo(Aluno *atual, Aluno *proximo){
     atual->proximo = proximo;
 }
 
+/**
+ * Função que retorna o identificador de um dado aluno
+ * 
+ * Parametro:
+ *      Aluno * - Aluno do qual se deseja encontrar seu identificador
+ * 
+ * Retorno:
+ *      int - id do aluno
+ */
+int aluno_obter_id (Aluno *identificado){
+
+    return identificado->identificador;
+}
+
 #pragma endregion
 
 
