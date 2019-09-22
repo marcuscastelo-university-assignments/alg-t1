@@ -56,7 +56,6 @@ void aluno_apagar(Aluno **aluno) {
  *      Aluno * - proximo aluno
  */
 Aluno *aluno_obter_proximo(Aluno *aluno){
-
     return aluno->proximo;
 }
 
@@ -71,7 +70,6 @@ Aluno *aluno_obter_proximo(Aluno *aluno){
  *      void
  */
 void aluno_definir_proximo(Aluno *atual, Aluno *proximo){
-
     atual->proximo = proximo;
 }
 
@@ -85,9 +83,22 @@ void aluno_definir_proximo(Aluno *atual, Aluno *proximo){
  *      int - id do aluno
  */
 int aluno_obter_id (Aluno *identificado){
-
     return identificado->identificador;
 }
+
+/**
+ * Função que retorna as horas de estudo de um aluno
+ * 
+ * Parametro:
+ *      Aluno * - Aluno do qual se deseja encontrar seu identificador
+ * 
+ * Retorno:
+ *      float - horas de estudo
+ */
+float aluno_obter_horas(Aluno *aluno) {
+    return aluno->horas_estudo;
+}
+
 
 #pragma endregion
 
