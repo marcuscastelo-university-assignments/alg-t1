@@ -89,6 +89,32 @@ int aluno_obter_id (Aluno *identificado){
     return identificado->identificador;
 }
 
+/**
+ * Funcao que retorna a nota 1 do aluno
+ * 
+ * Parametro:
+ *      Aluno * - aluno atual
+ * 
+ * Retorno: float - nota 1
+ */
+float aluno_obter_nota1(Aluno *aluno){
+
+    return aluno->nota1;
+}
+
+/**
+ * Funcao que retorna a nota 12 do aluno
+ * 
+ * Parametro:
+ *      Aluno * - aluno atual
+ * 
+ * Retorno: float - nota 2
+ */
+float aluno_obter_nota2(Aluno *aluno){
+
+    return aluno->nota2;
+}
+
 #pragma endregion
 
 
