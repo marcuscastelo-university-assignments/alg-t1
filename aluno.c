@@ -53,7 +53,7 @@ void aluno_apagar(Aluno **aluno) {
  *      Aluno * - aluno atual de referência para retornar o seu próximo
  * 
  * Retorno:
- *      Aluno *
+ *      Aluno * - proximo aluno
  */
 Aluno *aluno_obter_proximo(Aluno *aluno){
 
