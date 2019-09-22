@@ -6,61 +6,11 @@
 
 //Definição das structs que serão representadas por pointers opacos (TAD)
 
-struct aluno {
-    int identificador;
-    float horas_estudo;
-    float nota1, nota2;
-    Aluno *proximo;
-};
-
 struct lista_alunos {
     int quantidade;
     Aluno *primeiro_aluno;
     Aluno *ultimo_aluno;
 };
-
-//==============================
-
-//Funções do aluno
-#pragma region Aluno
-
-/**
- *  Função de criação de aluno (não adiciona na lista, apenas cria o nó a ser adicionado)
- * 
- *  Parâmetros: 
- *      int identificador - campo de identificação do aluno
- *      float horas_estudo - campo de horas de estudo do aluno
- *      float nota1 - primeira nota do aluno
- *      float nota2 - segunda nota do aluno
- * 
- *  Retorno: Aluno* - aluno criado
- */
-Aluno *aluno_criar(int identificador, float horas_estudo, float nota1, float nota2) {
-    Aluno *aluno = (Aluno*) malloc(sizeof(Aluno));
-    aluno->identificador = identificador;
-    aluno->horas_estudo = horas_estudo;
-    aluno->nota1 = nota1;
-    aluno->nota2 = nota2;
-    return aluno;
-}
-
-/**
- *  Função que libera a memória de um TAD Aluno
- *  
- *  Parâmetros: 
- *      Aluno **aluno - pointer para o pointer (usado na main) que representa o aluno criado com aluno_criar()
- * 
- *  Retorno: void 
- */
-void aluno_apagar(Aluno **aluno) {
-    if (*aluno == NULL) return;
-    
-    free(*aluno);
-    *aluno = NULL;
-}
-
-#pragma endregion
-
 
 //========================
 
@@ -98,8 +48,8 @@ void lista_imprimir_tempo_medio_estudo(ListaAlunos* lista) {
     unsigned quantidade = 0;
 
     while (aluno_atual) {
-        soma += aluno_atual->horas_estudo;
-        aluno_atual = aluno_atual->proximo;
+        soma += aluno_obter_horas(aluno_atual);
+        aluno_atual = aluno_obter_proximo(aluno_atual);
         quantidade++;
     }
 
@@ -129,7 +79,7 @@ void lista_liberar(ListaAlunos **lista_ptr){
 
     Aluno *aluno_atual = lista->primeiro_aluno, *proximo_aluno;
     while (aluno_atual) {
-        proximo_aluno = aluno_atual->proximo;
+        proximo_aluno = aluno_obter_proximo(aluno_atual);
         aluno_apagar(&aluno_atual);
         aluno_atual = proximo_aluno;
     }
@@ -151,8 +101,8 @@ void lista_liberar(ListaAlunos **lista_ptr){
  *      OBS: (0 = lista não vazia, 1 = lista vazia)
  */
 
-bool verifica_lista_vazia(ListaAlunos *vazia){
-    if(vazia->primeiro_aluno == NULL) return 0;
+bool verifica_lista_vazia(ListaAlunos *lista){
+    if(lista->primeiro_aluno == NULL) return 0;
     else return 1;
 }
 
@@ -173,11 +123,11 @@ void lista_adicionar(ListaAlunos *lista, Aluno *aluno){
 
     if(lista->primeiro_aluno == NULL){
         lista->primeiro_aluno = aluno;
-        aluno->proximo = NULL;
+        aluno_definir_proximo(aluno, NULL);
     }
     else{
-        aluno->proximo = NULL;
-        lista->ultimo_aluno->proximo = aluno;
+        aluno_definir_proximo(aluno, NULL);
+        aluno_definir_proximo(lista->ultimo_aluno, aluno);
     }
     lista->ultimo_aluno = aluno;
     lista->quantidade++;
@@ -198,19 +148,19 @@ void lista_remover_aluno(ListaAlunos *lista, int id){
     Aluno *p = lista->primeiro_aluno;
     Aluno *auxiliar = NULL;
 
-    while(p != NULL && (p->identificador) != id){
+    while(p != NULL && aluno_obter_id(p) != id){
         auxiliar = p;
-        p = p->proximo;
+        p = aluno_obter_proximo(p);
     }
 
     if(p!= NULL){
         if(p == lista->primeiro_aluno){
-            lista->primeiro_aluno = p->proximo;
-            p->proximo = NULL;
+            lista->primeiro_aluno = aluno_obter_proximo(p);
+            aluno_definir_proximo(p, NULL);
         }
         else{
-            auxiliar->proximo = p->proximo;
-            p->proximo = NULL;
+            aluno_definir_proximo(auxiliar, aluno_obter_proximo(p));
+            aluno_definir_proximo(p, NULL);
         }
 
         if(p == lista->ultimo_aluno){
@@ -248,7 +198,7 @@ void lista_imprimir_alunos(ListaAlunos *lista){
     while(atual){
         printf("%dº aluno: {\n\tIdentificador: %d\n\tHoras de estudo: %.2f\n\tNota 1: %.2f\n\tNota 2: %.2f\n}\n", i, atual->identificador,atual->horas_estudo, atual->nota1, atual->nota2);
         i++;
-        atual = atual->proximo;
+        atual = aluno_obter_proximo(atual);
     }
 }
 
@@ -276,13 +226,13 @@ void lista_imprimir_relatorio(ListaAlunos *lista){
     unsigned i = 1;
     float media;
     while(aluno_atual){
-        media = (aluno_atual->nota1 + aluno_atual->nota2)/2;
-        printf("%dº aluno: {\n\tIdentificador: %d\n\tMédia: %.2f\n}\n", i, aluno_atual->identificador, media); 
+        media = (aluno_obter_nota1(aluno_atual) + aluno_obter_nota2(aluno_atual))/2;
+        printf("%dº aluno: {\n\tIdentificador: %d\n\tMédia: %.2f\n}\n", i, aluno_obter_id(aluno_atual), media); 
        
         if(media >= 5) printf("---------->  Aluno APROVADO  <----------\n\n");
         else printf("---------->  Aluno REPROVADO  <----------\n\n");
         i++;
-        aluno_atual = aluno_atual->proximo;
+        aluno_atual = aluno_obter_proximo(aluno_atual);
     }
 }
 
