@@ -113,7 +113,7 @@ float aluno_obter_nota1(Aluno *aluno){
 }
 
 /**
- * Funcao que retorna a nota 12 do aluno
+ * Funcao que retorna a nota 2 do aluno
  * 
  * Parametro:
  *      Aluno * - aluno atual
