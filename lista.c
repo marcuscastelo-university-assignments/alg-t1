@@ -143,8 +143,6 @@ void lista_adicionar(ListaAlunos *lista, Aluno *aluno){
  *  Retorno: void
  */
 void lista_remover_aluno(ListaAlunos *lista, int id){
-
-    int verifica_mudanca = 0;
     Aluno *p = lista->primeiro_aluno;
     Aluno *auxiliar = NULL;
 
@@ -153,7 +151,9 @@ void lista_remover_aluno(ListaAlunos *lista, int id){
         p = aluno_obter_proximo(p);
     }
 
-    if(p!= NULL){
+    if (p==NULL) 
+        printf("\nNão foi possível encontrar o aluno com o identificador dado!\n");
+    else {
         if(p == lista->primeiro_aluno){
             lista->primeiro_aluno = aluno_obter_proximo(p);
             aluno_definir_proximo(p, NULL);
@@ -169,10 +169,8 @@ void lista_remover_aluno(ListaAlunos *lista, int id){
 
         lista->quantidade--;
         aluno_apagar(&p);
-        verifica_mudanca = 1;
     }
-
-    if(verifica_mudanca == 0) printf("\nNão foi possível encontrar o aluno com o identificador dado!\n");
+    
 }
 
 
